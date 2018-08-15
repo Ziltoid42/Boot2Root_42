@@ -45,7 +45,7 @@ We are presented to a basic webpage:
 
 
 * Now that we know the IP we're going to use DIRB to gather information about the file structure
-![DIRB](https://sourceforge.net/projects/dirb/)
+[DIRB!](https://sourceforge.net/projects/dirb/files/)
 DIRB is a tool that uses dictionaries of common file systems naming paterns in order uncover their presence.
 
 
@@ -66,35 +66,24 @@ We uncover :
 - https://192.168.99.100/webmail/
 --------------------
 
+Lets start by accessing the forum. There's a link that displays the users and what they posted, lmezard posted "Probleme login ?"  
 
-Avec nmap on recupere les ports, il y a un http et un https sur l'adresse IP 192.168.99.100
+![forum](https://github.com/Ziltoid42/Boot2Root_42/blob/master/bonus/images/forum1.png)
 
-On recupere un script appelle DIRB qui a partir d'un dictionnaire teste la presence d'elements dans l'arboressence.
-https://sourceforge.net/projects/dirb/i
+It links to a log output of what seems to be admin logins 
 
+When looking for the lmezard "Failed password for invalid user", one line seems very out of place: ```Failed password for invalid user !q\]Ej?*5K5cy*AJ```
 
-En testant ./dirb https://192.168.99.100/ wordlists/common.txt -w
+Could this be lmezard's password? :smirk:
 
-on se rend compte qu'il y a :
-un forum auquel on peut acceder par navigateur
-un webmail https://192.168.99.100/webmail/src/login.php
-un phpmyadmin
+With this password we can then login to the forum with lmezard's credentials and discover that her email address is laurie@borntosec.net
 
+Let's try to log to the webmail with this email and the same password:
 
-Il y a un lien qui liste les users https://192.168.99.100/forum/index.php?mode=user
+![webmail](https://github.com/Ziltoid42/Boot2Root_42/blob/master/bonus/images/webmail.png)
 
-lmezard a un seul poste dans : "Probleme login ?"
-
-dans probleme login il y a une entree etrange --> Failed password for invalid user !q\]Ej?*5K5cy*AJ from
-On vois quil existe un user "root"
-il y a aussi un "Oct 5 14:54:29 BornToSecHackMe sudo: admin : TTY=pts/0 ; PWD=/home/admin ; USER=root ; COMMAND=/bin/sh" ?
-
-Si on essaie !q\]Ej?*5K5cy*AJ en password pour lmezard ca passe.
-on peut recuperer son mail --> laurie@borntosec.net
-
-On va le tenter dans le webmail avec le meme password et ca passe ouuuuuh!!!!
-
-IL Y A UN MESSAGE DB ACCESS !!!
+Nice...
+Let's check the mail DB ACCESS:
 
 -->
 Hey Laurie,
@@ -103,11 +92,9 @@ You cant connect to the databases now. Use root/Fg-'kKXBj87E:aJ$
 
 Best regards.
 -->
-Bouyaaa !!!
+***Bouyaaa !!!***
 
-il y a aussi les mails de
-ft_root@mail.borntosec.net
-qudevide@mail.borntosec.net
+
 
 En magouillant un peu sur le login de phpmyadmin
 login: root
