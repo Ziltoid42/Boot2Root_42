@@ -95,7 +95,7 @@ Best regards.
 ***Bouyaaa !!!***
 
 
-
+--------------------------------------------------------------------------------------------
 En magouillant un peu sur le login de phpmyadmin
 login: root
 pass: Fg-'kKXBj87E:aJ$
