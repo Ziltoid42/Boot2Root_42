@@ -37,11 +37,33 @@ PORT    STATE SERVICE
 443/tcp open  https
 993/tcp open  imaps
 ```
+From this we know that the exact ip ends with .100
 80 should be open and accessible Through a web browser
 
 We are presented to a basic webpage:
 ![website](https://github.com/Ziltoid42/Boot2Root_42/blob/master/bonus/images/website.png)
 
+
+* Now that we know the IP we're going to use DIRB to gather information about the file structure
+![DIRB](https://sourceforge.net/projects/dirb/)
+DIRB is a tool that uses dictionaries of common file systems naming paterns in order uncover their presence.
+
+
+```
+./dirb https://192.168.99.100/ wordlists/common.txt -w
+```
+
+We uncover :
+
+- https://192.168.99.100/forum/  with subfolders:
+  - js
+  - lang
+  - modules
+  - templates_c
+  - themes
+  - update
+- https://192.168.99.100/phpmyadmin/
+- https://192.168.99.100/webmail/
 --------------------
 
 
