@@ -30,7 +30,7 @@ Now that we can connect as a low level user, we can attempt to use existing expl
 
 We can write download and execute external scripts in /tmp 
 
-We used an [existing script](https://github.com/sneakymonk3y/linux-exploit-suggester/blob/master/linux-exploit-suggester.sh) in order to recomand exploits from [www.exploit-db.com](https://www.exploit-db.com/) 
+We used an ![existing script](https://github.com/sneakymonk3y/linux-exploit-suggester/blob/master/linux-exploit-suggester.sh) in order to recommend exploits from [www.exploit-db.com](https://www.exploit-db.com/) 
 
 One exploit named dirtycow 2 fits perfectly to the VM's specs
 
@@ -45,7 +45,7 @@ Don't forget to chmod 755 and to compile with ```gcc -pthread dirty.c -o dirty -
 
 Then just run it and provide a new password when prompted and ```su firefart```.
 
-[Congrats](https://github.com/Ziltoid42/Boot2Root_42/blob/master/bonus/images/congrats.png)
+![Congrats](https://github.com/Ziltoid42/Boot2Root_42/blob/master/bonus/images/congrats.png)
 
 ***Congratulations! we just supplanted the root user*** 
 
