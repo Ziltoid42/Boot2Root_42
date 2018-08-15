@@ -161,7 +161,7 @@ There we find a README hinting that solving the bomb wil grant us access to thor
 5. Bomb step 5
 6. Bomb step 6
 
-*** ***This finally gets us access to thor's ssh !***
+***This finally gets us access to thor's ssh !***
 
 ------------------------------------------------------------------------------------------------
 
@@ -204,7 +204,7 @@ We then md5 SLASH in order to get zaz's password: "646da671ca01bb5d84dbb5fb2238d
 
 After connecting to zaz by ssh, we find a binary file called ***exploit_me***
 
-*** Buffer overflow
+** Buffer overflow
 
 
 
