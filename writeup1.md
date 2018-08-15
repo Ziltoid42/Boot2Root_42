@@ -13,17 +13,17 @@ After the setup we are presented with
 
 
 
+-----------------------------------------------------------------------------------
 
-Enter: ifconfig
+## Information gathering
 
------------------
-Install nmap via brew
------------------
+The first step is to understand what we can gain access to and where is it located.
 
+* First step is to find the ip of the VM by using ifconfig 
 ifconfig should display a range of IP for the vm between 1 and 255
 
-execute:
-nmap <IP>.1-255
+* Second step is to use ***nmap*** in order to uncover wich ports are open 
+execute: ```nmap <IP>.1-255```
 
 --> This should give back the precise IP and the open ports.
 80 should be open and accessible Through a web browser
