@@ -22,12 +22,25 @@ The first step is to understand what we can gain access to and where is it locat
 * First step is to find the ip of the VM by using ifconfig 
 ifconfig should display a range of IP for the vm between 1 and 255
 
-* Second step is to use ***nmap*** in order to uncover wich ports are open 
-execute: ```nmap <IP>.1-255```
+* Second step is to use ***nmap*** in order to uncover wich ports are open by executing: ```nmap <IP>.1-255```
 
---> This should give back the precise IP and the open ports.
+This gives back the precise IP and the open ports:
+```
+Nmap scan report for 192.168.99.100
+Host is up (0.00048s latency).
+Not shown: 994 closed ports
+PORT    STATE SERVICE
+21/tcp  open  ftp
+22/tcp  open  ssh
+80/tcp  open  http
+143/tcp open  imap
+443/tcp open  https
+993/tcp open  imaps
+```
 80 should be open and accessible Through a web browser
-It is a Wordpress
+
+We are presented to a basic webpage:
+![website](https://github.com/Ziltoid42/Boot2Root_42/blob/master/bonus/website.png)
 
 --------------------
 
