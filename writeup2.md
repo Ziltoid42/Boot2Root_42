@@ -9,7 +9,7 @@
 
 ## Unsquash
 
-[Squash](https://s3.amazonaws.com/finecooking.s3.tauntonclud.com/app/uploads/2017/04/24170702/ING-butternut-squash-thumb1x1.jpg)
+![Squash](https://s3.amazonaws.com/finecooking.s3.tauntonclud.com/app/uploads/2017/04/24170702/ING-butternut-squash-thumb1x1.jpg)
 
 In order to better understand the file structure we can explore the ISO file by simply opening it.
 
@@ -30,7 +30,7 @@ Now that we can connect as a low level user, we can attempt to use existing expl
 
 We can write download and execute external scripts in /tmp 
 
-We used an ![existing script](https://github.com/sneakymonk3y/linux-exploit-suggester/blob/master/linux-exploit-suggester.sh) in order to recommend exploits from [www.exploit-db.com](https://www.exploit-db.com/) 
+We used an [existing script](https://github.com/sneakymonk3y/linux-exploit-suggester/blob/master/linux-exploit-suggester.sh) in order to recommend exploits from [www.exploit-db.com](https://www.exploit-db.com/) 
 
 One exploit named dirtycow 2 fits perfectly to the VM's specs
 
