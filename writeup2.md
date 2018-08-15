@@ -7,7 +7,7 @@
  |____/ \___/ \___/ \__|____|_|  \_\___/ \___/ \__|
 ```
 
-** Unsquash
+## Unsquash
 
 [Squash](https://s3.amazonaws.com/finecooking.s3.tauntonclud.com/app/uploads/2017/04/24170702/ING-butternut-squash-thumb1x1.jpg)
 
@@ -24,7 +24,7 @@ from there we can freely explore the system
 -----------------------------------------------------------------------------------------
 
 
-** Privilege escalation
+## Privilege escalation
 
 Now that we can connect as a low level user, we can attempt to use existing exploits that will grant us root access. These exploit are possible for certain versions of the kernel/OS/Architecture/distribution/Package_list running the server.
 
