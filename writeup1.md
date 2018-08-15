@@ -17,12 +17,12 @@ After the setup we are presented with
 
 ## Information gathering
 
-The first step is to understand what we can gain access to and where is it located.
+We need to understand what we can gain access to and where it is located.
 
 * First step is to find the ip of the VM by using ifconfig 
 ifconfig should display a range of IP for the vm between 1 and 255
 
-* Second step is to use ***nmap*** in order to uncover wich ports are open by executing: ```nmap <IP>.1-255```
+* Second step is to use ***nmap*** in order to uncover wich ports are open by executing: ```nmap 192.168.99.1-255```
 
 This gives back the precise IP and the open ports:
 ```
@@ -37,7 +37,7 @@ PORT    STATE SERVICE
 443/tcp open  https
 993/tcp open  imaps
 ```
-From this we know that the exact ip ends with .100
+From this we know that the exact ip ends with .100 \n
 80 should be open and accessible Through a web browser
 
 We are presented to a basic webpage:
