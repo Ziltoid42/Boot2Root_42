@@ -9,7 +9,7 @@
  
 After the setup we are presented with 
 
-![BorntoSec](https://github.com/Ziltoid42/Boot2Root_42/blob/master/bonus/setup.png)
+![BorntoSec](https://github.com/Ziltoid42/Boot2Root_42/blob/master/bonus/images/setup.png)
 
 
 
@@ -40,7 +40,7 @@ PORT    STATE SERVICE
 80 should be open and accessible Through a web browser
 
 We are presented to a basic webpage:
-![website](https://github.com/Ziltoid42/Boot2Root_42/blob/master/bonus/website.png)
+![website](https://github.com/Ziltoid42/Boot2Root_42/blob/master/bonus/images/website.png)
 
 --------------------
 
