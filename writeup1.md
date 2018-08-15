@@ -37,16 +37,16 @@ PORT    STATE SERVICE
 443/tcp open  https
 993/tcp open  imaps
 ```
-From this we know that the exact ip ends with .100 \n
+From this we know that the exact ip ends with .100 and that port
 80 should be open and accessible Through a web browser
 
 We are presented to a basic webpage:
 ![website](https://github.com/Ziltoid42/Boot2Root_42/blob/master/bonus/images/website.png)
 
 
-* Now that we know the IP we're going to use DIRB to gather information about the file structure
-[DIRB!](https://sourceforge.net/projects/dirb/files/)
-DIRB is a tool that uses dictionaries of common file systems naming paterns in order uncover their presence.
+* Now that we know the IP, we're going to use DIRB to gather information about the file structure.
+[DIRB](https://sourceforge.net/projects/dirb/files/)
+is a tool that uses dictionaries of common file systems naming paterns in order uncover their presence.
 
 
 ```
@@ -106,7 +106,7 @@ login: root
 password: Fg-'kKXBj87E:aJ$
 
 
-Following [This tutorial on PHPmyadmin exploitation!](http://www.informit.com/articles/article.aspx?p=1407358&seqNum=2)
+Following [This tutorial on PHPmyadmin exploitation](http://www.informit.com/articles/article.aspx?p=1407358&seqNum=2)
 
 We're going to inject a php file that allows us to run shell commands within the browser.
 By trying the differents subfolders of the forum we finally uncover that phpmydamin has writing rights to templates_c:
@@ -141,7 +141,7 @@ There's a file called "fun" and README file that says : ```Complete this little 
 
 ## Puzzles to root access
 
-fun turns out to be an archive, which when uncompressed shows multiples .pcap files (packets captured by a wireshark type sniffer). using ```grep return```  we can get 12 files each containing a character. By ordering the files in ascending order based on the comments values we get: "Iheartpawnage" 
+fun turns out to be an archive, which when uncompressed shows multiples .pcap files (packets captured by a wireshark type sniffer). using ```grep return```  we can get 12 files each containing a character. By ordering the files in ascending order based on the comments values we get: "Iheartpwnage" 
 A hint in the fun file also tells us to sha256 the result, which gives: "330b845f32185747e4f8ca15d40ca59796035c89ea809fb5d30f4da83ecf45a4"  
 
 We can finally access to laurie's account to the server:
@@ -161,15 +161,50 @@ There we find a README hinting that solving the bomb wil grant us access to thor
 5. Bomb step 5
 6. Bomb step 6
 
+*** ***This finally gets us access to thor's ssh !***
+
+------------------------------------------------------------------------------------------------
+
+Inside there is a file called turtle and a README telling us solving the riddle will grant us zaz's ssh access
+
+The turtle file contains instruction structured like this:
+
+```
+Tourne droite de 1 degrees
+Avance 1 spaces
+Tourne droite de 1 degrees
+Avance 50 spaces
+
+Avance 210 spaces
+Recule 210 spaces
+Tourne droite de 90 degrees
+Avance 120 spaces
+
+Tourne droite de 10 degrees
+Avance 200 spaces
+Tourne droite de 150 degrees
+Avance 200 spaces
+Recule 100 spaces
+Tourne droite de 120 degrees
+Avance 50 spaces
+
+Tourne gauche de 90 degrees
+Avance 50 spaces
+```
+
+[Turtle](https://docs.python.org/2/library/turtle.html) turns out to be a python module used to draw pictures
+
+By using our provided script, we parse and draw what turns to write "SLASH":
+
+![turtle](https://github.com/Ziltoid42/Boot2Root_42/blob/master/bonus/images/turtle.png)
+
+We then md5 SLASH in order to get zaz's password: "646da671ca01bb5d84dbb5fb2238dc8e"
+
+------------------------------------------------------------------------------------------------------
+
+After connecting to zaz by ssh, we find a binary file called ***exploit_me***
+
+*** Buffer overflow
 
 
-
-
-
-
-
-
-Password SSH de Laurie
-
-laurie / 330b845f32185747e4f8ca15d40ca59796035c89ea809fb5d30f4da83ecf45a4
 
