@@ -13,13 +13,19 @@
 
 In order to better understand the file structure we can explore the ISO file by simply opening it.
 
-There we find a .squashfs file corresponding to the compressed system.
-It is possible to uncompress it in order to explore it:
-
-```unsquashfs -f /Path/to/source/filesystem.squash.fs -d /Path/to/destination```
+If you have a ssh acces to the server (like lmezard or laurie), you can explore the subfolders.
 
 
-from there we can freely explore the system 
+In /cdrom/casper/ we find a .squashfs file corresponding to the compressed system.
+It is possible to uncompress it from /tmp in order to explore it:
+
+```Unsquashfs -f -d new_system /cdrom/casper/filesystem.squashfs```
+
+even though we have to abort the command, it copies enough for us to ***read the whole system and find the final flag***:
+
+![congrats_squash](https://github.com/Ziltoid42/Boot2Root_42/blob/master/bonus/images/congrats_squash.png)
+
+
 
 -----------------------------------------------------------------------------------------
 
