@@ -159,7 +159,7 @@ When we disassemble the bomb we uncover 6 functions called phase_X (X being a nu
 	We find the string 'Public speaking is very easy.' at the address 0x080497c0 ```x/s 0x080497c0``` Just after that we see the function 'strings_not_equal' is called. We deduct our input will be compared to the precedent string.
 
 2. Bomb PHASE 2 : '1 2 6 24 120 720'
-	We find the function 'read_six_numbers' and the string '%d %d %d %d %d %d' at the address 0x08049b1b. We know from the hints the first number is 1, the others are multiples of their position in the sequence (1*1, 2*1, 3*2, 4*6, 5*24, 6*120)
+	We find the function 'read_six_numbers' and the string '%d %d %d %d %d %d' at the address 0x08049b1b. We know from the hints the first number is 1, the others are multiples of their position in the sequence ```(1*1, 2*1, 3*2, 4*6, 5*24, 6*120)```
 
 3. Bomb PHASE 3: ''1 b 214'
 	We find the string "%d %c %d" at the address 0x80497de that indicates the expected input, hints gives us the 'b' CHAR, reading the assembly code gives us the rest. ***Warning*** several solutions possible but only this one gives us the right password at the end 
