@@ -206,5 +206,9 @@ After connecting to zaz by ssh, we find a binary file called ***exploit_me***
 
 ** Buffer overflow
 
+![disas](https://github.com/Ziltoid42/Boot2Root_42/blob/master/bonus/images/disas.png)
+![system](https://github.com/Ziltoid42/Boot2Root_42/blob/master/bonus/images/system.png)
+![congrats_overflow](https://github.com/Ziltoid42/Boot2Root_42/blob/master/bonus/images/congrats_overflow.png)
+
 
 
