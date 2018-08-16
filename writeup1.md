@@ -153,15 +153,30 @@ We can finally access to laurie's account to the server:
 ------------------------------------------------------------------------------------------------
 
 There we find a README hinting that solving the bomb wil grant us access to thor's shh access
+When we disassemble the bomb we uncover 6 functions called phase_X (X being a number between 1 and 6) 
 
-1. Bomb step 1
-2. Bomb step 2
-3. Bomb step 3
-4. Bomb step 4
-5. Bomb step 5
-6. Bomb step 6
+1. Bomb PHASE 1 : 'Public speaking is very easy.'
+	We find the string 'Public speaking is very easy.' at the address 0x080497c0 ```x/s 0x080497c0``` Just after that we see the function 'strings_not_equal' is called. We deduct our input will be compared to the precedent string.
+
+2. Bomb PHASE 2 : '1 2 6 24 120 720'
+	We find the function 'read_six_numbers' and the string '%d %d %d %d %d %d' at the address 0x08049b1b. We know from the hints the first number is 1, the others are multiples of their position in the sequence (1*1, 2*1, 3*2, 4*6, 5*24, 6*120)
+
+3. Bomb PHASE 3: ''1 b 214'
+	We find the string "%d %c %d" at the address 0x80497de that indicates the expected input, hints gives us the 'b' CHAR, reading the assembly code gives us the rest. ***Warning*** several solutions possible but only this one gives us the right password at the end 
+
+4. Bomb PHASE 4: "9"
+	We find the string "%d" at the address 0x8049808 that indicates the expected input. We see the expected result is '55' at the address 0x8048d1d, we get the result by inversing the assembly code
+
+5. Bomb PHASE 5: "opekmq"
+	We find the string "giants" at the address 0x804980b that indicates the expected final result. We also uncover the tab "isrveawhobpnutfg" at the address 0x8048d7b. We understand the program is going to apply operations on each char of our input and compare it to the tab. After several tests we finally find the result. ***Warning*** several solutions possible but only this one gives us the right password at the end 
+
+6. Bomb PHASE 6: "4 2 6 3 1 5"
+	We find the function 'read_six_numbers' hinting at the expected input, and the hints gives us '4'. We understand the program is a series of loops with several conditions. We need to reverse the assembly code and test different inputs until we find the solution.
+
+Finally the end result is the concatenation of all the results: "Publicspeakingisveryeasy.126241207201b2149opukmq426315" However and error forces us to inverse the 3 and 1 characters at the end of the string (thanks to that one guys on the forum)
 
 ***This finally gets us access to thor's ssh !***
+
 
 ------------------------------------------------------------------------------------------------
 
