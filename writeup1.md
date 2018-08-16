@@ -202,7 +202,7 @@ We then md5 SLASH in order to get zaz's password: "646da671ca01bb5d84dbb5fb2238d
 
 ------------------------------------------------------------------------------------------------------
 
-** Buffer overflow
+## Buffer overflow
 
 After connecting to zaz by ssh, we find a binary file called ***exploit_me***
 
@@ -221,9 +221,10 @@ And sure enough it uses the strcpy function, which is a well known security risk
   - One after the return value of strcpy
 
 - We then run the program a first time with a random input ```OSEF``` in order to get the buffer address
-- We get adsress of the system function with ```p system``` ![system](https://github.com/Ziltoid42/Boot2Root_42/blob/master/bonus/images/system.png)
+- We get adsress of the system function with ```p system``` 
+![system](https://github.com/Ziltoid42/Boot2Root_42/blob/master/bonus/images/system.png)
 - Then we fetch the address of the char str "/bin/sh" with the command: ```find &system,+9999999, "/bin/sh"```
-- Finally we get the buffer size by substracting the address of $eip with the buffer address and find ***140***
+- Finally we get the buffer size by substracting the address of $eip with the buffer address and find ***140***: ![substract](https://github.com/Ziltoid42/Boot2Root_42/blob/master/bonus/images/substract.png)
 
 - This allows us to launch the ret2lib attack with this command: 
 
