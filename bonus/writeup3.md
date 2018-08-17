@@ -20,3 +20,8 @@ Now when we login to the forum as lmezard, we get a link to the admin panel.
 And now that we have control, we can mess with it:  
 
 ![pawned](https://github.com/Ziltoid42/Boot2Root_42/blob/master/bonus/images/pawned.png)
+
+If we feel truly evil though we can go as far as deleting the whole forum:
+
+![delete](https://github.com/Ziltoid42/Boot2Root_42/blob/master/bonus/images/delete.png)
+
