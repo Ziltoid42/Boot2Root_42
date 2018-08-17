@@ -141,7 +141,7 @@ There's a file called "fun" and README file that says : ```Complete this little 
 
 ## Puzzles to root access
 
-fun turns out to be an archive, which when uncompressed shows multiples .pcap files (packets captured by a wireshark type sniffer). using ```grep return```  we can get 12 files each containing a character. By ordering the files in ascending order based on the comments values we get: "Iheartpwnage" 
+fun turns out to be an archive, which when uncompressed shows multiples .pcap files (packets captured by a wireshark type sniffer). using ```grep return *```  we can get 12 files each containing a character. By ordering the files in ascending order based on the comments values we get: "Iheartpwnage" 
 A hint in the fun file also tells us to sha256 the result, which gives: "330b845f32185747e4f8ca15d40ca59796035c89ea809fb5d30f4da83ecf45a4"  
 
 We can finally access to laurie's account to the server:
@@ -173,7 +173,7 @@ When we disassemble the bomb we uncover 6 functions called phase_X (X being a nu
 6. Bomb PHASE 6: "4 2 6 3 1 5"
 	We find the function 'read_six_numbers' hinting at the expected input, and the hints gives us '4'. We understand the program is a series of loops with several conditions. We need to reverse the assembly code and test different inputs until we find the solution.
 
-Finally the end result is the concatenation of all the results: "Publicspeakingisveryeasy.126241207201b2149opukmq426315" However and error forces us to inverse the 3 and 1 characters at the end of the string (thanks to that one guys on the forum)
+Finally the end result is the concatenation of all the results: "Publicspeakingisveryeasy.126241207201b2149opekmq426315" However and error forces us to inverse the 3 and 1 characters at the end of the string (thanks to that one guys on the forum)
 
 ***This finally gets us access to thor's ssh !***
 
